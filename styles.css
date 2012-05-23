@@ -1,0 +1,247 @@
+/* @group Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* @end */
+
+html {
+    background-image: url(noise.png);
+}
+
+header {
+  background-image: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(226, 233, 235, 0.49) 37.9%, #c5d2d7 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), color-stop(0.379, rgba(226, 233, 235, 0.49)), to(#c5d2d7));
+}
+
+h1 {
+  padding: 12px 12px 0;
+  color: #4d72b1;
+  text-shadow: 0 2px 0 rgb(255, 255, 255);
+  font: 3em "Bree Serif", serif;
+}
+
+h2 {
+  font: 1.4em "Bree Serif", serif;
+  padding: 0 12px 12px;
+  color: #6a6a6a;
+  text-shadow: 0 1px 0 rgb(255, 255, 255);
+  margin-top: -8px;
+}
+
+h3 {
+  font: bold 1.2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  color: #ec643f;
+  text-shadow: 0 2px 0 #ffffff;
+}
+
+#login {
+ float: right;
+  font-size: .9em;
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 4px;
+  border-radius: 0 0 0 4px;
+}
+
+#login a {
+  color: #ec643f;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+#login a:hover {
+  text-decoration: underline;
+}
+
+#content_wrapper {
+  margin: 20px auto;
+  height: 600px;
+  width: 660px;
+}
+
+#header_wrapper {
+  width: 700px;
+  margin: auto;
+}
+
+section {
+  padding: 10px 0 40px;
+  margin: auto;
+  border-bottom: 1px solid rgba(166, 177, 182, 0.49);
+}
+
+#big_map {
+  border: 1px solid #8f9ca2;
+  margin: 10px auto;
+  height: 400px;
+  width: 660px;
+  background-color: #f7f8f8;
+}
+
+.row {
+  margin: 10px 0;
+}
+
+.post {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid #8f9ca2;
+  height: 140px;
+  width: 316px;
+  background: #f7f8f8;
+  border-radius: 3px;
+}
+
+.post:first-of-type {
+  margin-left: 0;
+}
+
+.post:last-of-type {
+  margin-right: 0;
+}
+
+.post:hover {
+  background-color: #ffffff;
+}
+
+.view_by {
+  display: inline-block;
+  margin: 20px 10px 0;
+  border: 2px solid #e9eaec;
+  width: 314px;
+  padding: 40px 0;
+  border-radius: 6px;
+  background: -moz-linear-gradient(90deg, #fbfcfc 0%, white 100%) #fbfcfc;
+  background: -webkit-gradient(linear, left bottom, left top, from(#fbfcfc), to(white)) #fbfcfc;
+  text-align: center;
+  color: #b6b6b6;
+  font: 1.35em "Lucida Grande", Lucida, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+.view_by:first-of-type {
+  margin-left: 0;
+}
+
+.view_by:last-of-type {
+  margin-right: 0;
+}
+
+.view_by:hover {
+  color: #7e7e7e;
+  background-color: #ffffff;
+  border-color: #d1d1d1;
+}
+
+/* @group Listings */
+
+nav#size_catagories ul {
+  text-align: center;
+}
+
+nav#size_catagories li {
+  display: inline-block;
+  padding: 8px 9px;
+  cursor: pointer;
+  color: #5a5a5a;
+  font: .9em "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+nav#size_catagories li:hover {
+  border-right: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  padding: 8px 8px;
+  background-color: white;
+}
+
+nav#size_catagories {
+  border-radius: 6px;
+  border: 1px solid #dfdfdf;
+  background: -moz-linear-gradient(90deg, #f6f6f6 0%, white 100%) #f6f6f6;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f6f6f6), to(white)) #f6f6f6;
+  margin-bottom: 18px;
+}
+
+/* @end */
+
+/* @group House info */
+
+img.house {
+  width: 120px;
+  margin: 10px;
+  float: left;
+}
+
+h4 {
+  color: #4d72b1;
+  font: bold .9em "Lucida Grande", Lucida, Verdana, sans-serif;
+  margin: 8px 10px 6px;
+}
+
+dl {
+  font-size: .8em;
+}
+
+dt {
+  font-weight: bold;
+  display: inline;
+}
+
+dd {
+  display: inline;
+}
+
+dd:after {
+  content: '\A';
+  white-space: pre;
+}
+
+/* @end */
