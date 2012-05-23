@@ -1,4 +1,7 @@
 Offcampus::Application.routes.draw do
+  resources :landlords
+  resources :properties
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -24,8 +27,6 @@ Offcampus::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-
-  resources :properties
   
   # Sample resource route with sub-resources:
   #   resources :products do
@@ -58,6 +59,4 @@ Offcampus::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   #match ':controller(/:action(/:id))(.:format)'
-
-  match '/properties/new', :to => 'properties#new', :as => :property
 end

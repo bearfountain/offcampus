@@ -11,27 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523200750) do
+ActiveRecord::Schema.define(:version => 20120523230432) do
 
   create_table "landlords", :force => true do |t|
-    t.string   "first"
-    t.string   "last"
+    t.string   "name"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "hide_contact"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "properties", :force => true do |t|
-    t.string   "address",                                                          :null => false
+    t.string   "address"
     t.text     "description"
+    t.float    "price"
+    t.string   "unit"
     t.integer  "bedrooms"
     t.integer  "square_footage"
-    t.boolean  "laundry",                                       :default => false
-    t.decimal  "price",          :precision => 10, :scale => 0
-    t.string   "unit"
-    t.datetime "created_at",                                                       :null => false
-    t.datetime "updated_at",                                                       :null => false
+    t.boolean  "laundry"
+    t.integer  "landlord_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "utilities"
   end
 
 end

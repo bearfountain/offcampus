@@ -1,3 +1,4 @@
 class Landlord < ActiveRecord::Base
-  attr_accessible :email, :first, :last, :phone
+  attr_accessible :name, :email, :phone
+  has_many :properties
 end

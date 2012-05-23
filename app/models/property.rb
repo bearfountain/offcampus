@@ -1,5 +1,10 @@
 class Property < ActiveRecord::Base
-  attr_accessible :address, :description, :bedrooms, :square_footage, :laundry, :price, :unit
-  belongs_to :landlord
-  validates :address, :presence => true
+	attr_accessible :description, :address, :laundry, :price, :unit, :square_footage, :bedrooms, :landlord_id
+
+	validates :address, :presence => true
+	validates :description, :presence => true
+	validates :bedrooms, :presence => true, :numericality => { :only_integer => true }
+	validates :square_footage, :presence => true, :numericality => { :only_integer => true }
+
+	belongs_to :landlord
 end
