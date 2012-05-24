@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'mysql2', '~> 0.3.7'
 
+gem "paperclip", "~> 3.0"
+
 gem 'dynamic_form'
 
 gem 'json'

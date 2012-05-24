@@ -8,4 +8,8 @@ class Property < ActiveRecord::Base
 	validates :price, :presence => true, :numericality => true
 
 	belongs_to :landlord
+
+	has_many :photos
+
+	accepts_nested_attributes_for :photos
 end

@@ -14,6 +14,12 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def properties
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
+  end
+
   # GET /properties/1
   # GET /properties/1.json
   def show
@@ -29,6 +35,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new.json
   def new
     @property = Property.new
+    @property.photos.build
 
     respond_to do |format|
       format.html # new.html.erb

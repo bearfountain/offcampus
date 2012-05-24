@@ -1,0 +1,8 @@
+<% if photo != nil %>
+	<% new_or_existing = photo.new_record? ? 'new' : 'existing' %>
+	<% prefix = "property[#{new_or_existing}_photo_attributes][]" %>
+
+	<% fields_for prefix, photo do |photo_form| %>
+		<%= photo_form.file_field :photo %>
+	<% end %>
+<% end %>

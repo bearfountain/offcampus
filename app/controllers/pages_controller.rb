@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
 		@featured = Property.where("featured = ?", 1).limit(4)
 	end
+
+	def list
+
+	end
 end

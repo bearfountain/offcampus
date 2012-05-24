@@ -17,7 +17,8 @@
 		Landlords:
 
 		<% if user_signed_in? %>
-			Logged in as: <%= current_user.landlord.name %>. <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+			Logged in as: <%= current_user.landlord.name %>. <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> | 
+			<%= link_to('Dashboard', { :controller => 'landlords', :action => 'dashboard' }) %>
 		<% else %>
 			<%= link_to('Login', new_user_session_path) %> |
 			<%= link_to('Signup', new_user_session_path) %>
@@ -25,7 +26,7 @@
 	</div>
 	<div id="header_wrapper">
 		<h1>Geneseo Off-Campus</h1>
-		<h2>The better place to find off-housing.</h2>
+		<h2>The better place to find off-campus housing.</h2>
 	</div>
 	<p class='notice'><%= notice %></p>
 	<p class='alert'><%= alert %></p>

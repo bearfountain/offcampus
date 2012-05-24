@@ -11,15 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120524001534) do
+ActiveRecord::Schema.define(:version => 20120524145628) do
 
   create_table "landlords", :force => true do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "email"
     t.boolean  "hide_contact"
+    t.integer  "user_id",      :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "properties", :force => true do |t|
@@ -34,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120524001534) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "utilities"
+    t.boolean  "featured",       :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -101,6 +101,11 @@ h3 {
   text-decoration: underline;
 }
 
+#content {
+  width: 700px;
+  margin: auto;
+}
+
 #content_wrapper {
   margin: 20px auto;
   height: 600px;
@@ -115,6 +120,7 @@ h3 {
 section {
   padding: 10px 0 40px;
   margin: auto;
+  width: 700px;
   border-bottom: 1px solid rgba(166, 177, 182, 0.49);
 }
 
@@ -214,7 +220,7 @@ nav#size_catagories {
 
 /* @group House info */
 
-img.house {
+.listings img.house {
   width: 120px;
   margin: 10px;
   float: left;
@@ -226,22 +232,40 @@ h4 {
   margin: 8px 10px 6px;
 }
 
-dl {
+.listings dl {
   font-size: .8em;
 }
 
-dt {
-  font-weight: bold;
-  display: inline;
+dd {
+  display: block;
+  text-align: right;
 }
 
-dd {
-  display: inline;
+dt {
+  display: block;
+  text-align: left;
+  float: left;
+  font-weight: bold;
 }
 
 dd:after {
   content: '\A';
   white-space: pre;
 }
+
+/* @end */
+
+/* @group Listing */
+
+.listing img.house {
+  width: 260px;
+  float: left;
+  margin-right: 20px;
+}
+
+dt, dd {
+  padding: 4px;
+}
+
 
 /* @end */

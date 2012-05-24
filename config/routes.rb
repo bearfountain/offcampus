@@ -69,4 +69,8 @@ Offcampus::Application.routes.draw do
   devise_scope :user do
     get "sign_out", :to => "devise/sessions#destroy"
   end
+
+  match '/list' => 'pages#list'
+
+  match '/test' => 'properties#properties'
 end
