@@ -1,0 +1,27 @@
+<section>
+  <div class="view_by">
+    By Number of Rooms
+  </div>
+  <div class="view_by">
+    By Price
+  </div>
+</section>
+<section>
+  <h3>Map of Geneseo</h3>
+  <div id="big_map"></div>
+</section>
+<section>
+  <h3>Featured:</h3>
+  	<% @featured.each_with_index do |property, index| %>
+  		<% if index % 2 == 0 %>
+  			<div class='row'>
+  		<% end %>
+
+  		<div class='post'><%= property.address %></div>
+
+  		<% if index % 2 == 1 %>
+  			</div>
+  		<% end %>
+
+  	<% end %>
+</section>

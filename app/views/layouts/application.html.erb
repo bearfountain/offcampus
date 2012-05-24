@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Offcampus</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Geneseo Offcampus</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<header>
+	<div id="login">
+		Landlords:
 
-<p class='notice'><%= notice %></p>
-<p class='alert'><%= alert %></p>
+		<% if user_signed_in? %>
+			Logged in as: <%= current_user.landlord.name %>. <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+		<% else %>
+			<%= link_to('Login', new_user_session_path) %> |
+			<%= link_to('Signup', new_user_session_path) %>
+		<% end %>
+	</div>
+	<div id="header_wrapper">
+		<h1>Geneseo Off-Campus</h1>
+		<h2>The better place to find off-housing.</h2>
+	</div>
+	<p class='notice'><%= notice %></p>
+	<p class='alert'><%= alert %></p>
+</header>
 
-<p>
-	<% if user_signed_in? %>
-		Logged in as: <%= current_user.landlord.name %>. <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-	<% else %>
-		<%= link_to('Login', new_user_session_path) %>
-	<% end %>
-</p>
+<div id='content'>
+	<div id='content-wrapper'>
+		<%= yield %>
+	</div>
+</div>
 
-<%= yield %>
+<footer></footer>
 
 </body>
 </html>

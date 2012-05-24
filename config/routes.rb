@@ -55,7 +55,7 @@ Offcampus::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root :to => 'properties#index'
+  root :to => 'pages#home'
 
   match '/dashboard' => 'landlords#dashboard', :as => :user_root
 

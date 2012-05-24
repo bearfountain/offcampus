@@ -9,6 +9,7 @@ class CreateProperties < ActiveRecord::Migration
     	t.integer :square_footage
     	t.boolean :laundry
       t.integer :landlord_id
+      t.boolean :featured
      	t.timestamps
     end
   end

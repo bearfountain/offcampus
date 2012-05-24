@@ -8,8 +8,6 @@
     <th>Price</th>
     <th>Laundry</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @properties.each do |property| %>
@@ -17,15 +15,13 @@
     <td><%= property.landlord.name %></td>
     <td><%= property.address %></td>
     <td><%= property.description %></td>
-    <td><%= property.price %> per <%= property.unit %></td>
+    <td><%= property.price %> a <%= property.unit %></td>
     <td><%= property.laundry ? 'included' : 'not included' %></td>
-    <td><%= link_to 'Show', property %></td>
-    <td><%= link_to 'Edit', edit_property_path(property) %></td>
-    <td><%= link_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <% if user_signed_in? and property.landlord_id == @user.landlord.id %>
+        <%= link_to 'Edit', edit_property_path(property) %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Property', new_property_path %>
