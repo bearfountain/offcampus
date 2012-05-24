@@ -41,7 +41,6 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(params[:property])
-    @property.landlord_id = User.find(current_user).landlord.id
 
     respond_to do |format|
       if @property.save

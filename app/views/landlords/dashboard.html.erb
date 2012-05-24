@@ -1,0 +1,7 @@
+<h1>Dashboard</h1>
+
+<% @landlord.properties.each do |property| %>
+	<p><%= property.address %></p>
+<% end %>
+
+<%= link_to 'Add Property', new_property_path %>

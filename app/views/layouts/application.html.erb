@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<p class='notice'><%= notice %></p>
+<p class='alert'><%= alert %></p>
+
+<p>
+	<% if user_signed_in? %>
+		Logged in as: <%= current_user.landlord.name %>. <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+	<% else %>
+		<%= link_to('Login', new_user_session_path) %>
+	<% end %>
+</p>
+
 <%= yield %>
 
 </body>

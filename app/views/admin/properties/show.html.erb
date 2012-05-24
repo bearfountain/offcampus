@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @property.address %></h2>
+
+<p><%= @property.description %></p>
+
+<dl>
+	<dt>Landlord:</dt>
+	<dd><%= @property.landlord.name %></dd>
+
+	<dt>Phone:</dt>
+	<dd><%= @property.landlord.phone %></dd>
+
+	<dt>Email:</dt>
+	<dd><%= @property.landlord.email %></dd>
+
+	<dt>Laundry included:</dt>
+	<dd><%= @property.laundry ? 'yes' : 'no' %></dd>
+
+	<dt>Price:</dt>
+	<dd>$<%= @property.price %> per <%= @property.unit %></dd>
+
+	<dt>Number of Bedrooms:</dt>
+	<dd><%= @property.bedrooms %></dd>
+
+	<dt>Square Footage:</dt>
+	<dd><%= @property.square_footage %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>
