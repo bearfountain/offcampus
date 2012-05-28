@@ -1,0 +1,15 @@
+%section
+  .view_by By Number of Rooms
+  .view_by By Price
+%section
+  %h3 Map of Geneseo
+  #big_map
+%section
+  %h3 
+    Featured:
+    - @featured.each_with_index do |property, index|
+      - if index % 2 == 0
+        .row
+          .post 
+            = property.address
+              - if index % 2 == 1
