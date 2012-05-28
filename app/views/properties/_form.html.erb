@@ -1,4 +1,4 @@
-<%= form_for(@property) do |f| %>
+<%= form_for(@property, :html => { :multipart => true }) do |f| %>
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -38,7 +38,7 @@
 
   <div class='field'>
     <%= f.label :price, 'Price' %> <br />
-    $<%= f.text_field :price, :size => 4 %> 
+    $<%= f.text_field :price, :size => 4 %>
     per 
     <%= f.select :unit, options_for_select([
       ['Month', 'month'],
@@ -47,7 +47,26 @@
     ]) %>
   </div>
 
-  <%= render('photo', :collection => @property.photos) || 'No photos' %>
+  <%= f.fields_for :photos do |photo_form| %>
+    <p>
+      <% if not photo_form.object.new_record? %>
+        <%= image_tag photo_form.object.photo.url(:medium) %>
+      <% end %>
+
+      <%= photo_form.label :main, "Featured Photo" %>
+      <%= photo_form.check_box :main, :class => "featured" %>
+
+      <% if photo_form.object.new_record? %>
+        <%= photo_form.file_field :photo %>
+      <% end %>
+
+
+      <% if not photo_form.object.new_record? %>
+        <%= photo_form.hidden_field :_destroy, :value => 0 %>
+        <a href="#" class="delete_photo">remove photo</a>
+      <% end %>
+    </p>
+  <% end %>
 
   <%= add_photo_link('Add Photo') %>
 

@@ -1,75 +1,50 @@
 <nav id="size_catagories">
-    <ul>
-      <li>Studio</li>
-      <li>1 Bedroom</li>
-      <li>2 Bedroom</li>
-      <li>3 Bedroom</li>
-      <li>4 Bedroom</li>
-      <li>5 Bedroom</li>
-      <li>6+ Bedroom</li>
-    </ul>
-  </nav>
-  <div id="sort_catagories">
-    <div class="sliderbar"></div>
-  </div>
-  <section>
-    <h3># Bedroom</h3>
-      <div class="row">
-        <div class="post">
-          <img src="house1.jpeg" alt="house1" class="house" />
-          <h4>Wonderful Home</h4>
-          <dl class="info">
-            <dt>Address:</dt>
-            <dd>69 Main St.</dd>
-            <dt>Number of Rooms:</dt>
-            <dd>4</dd>
-            <dt>Parking:</dt>
-            <dd>Yes</dd>
-            <dt>Rent:</dt>
-            <dd>$2000<span class="pay_period">/mo</span></dd>
-          </dl>
-        </div>
-        <div class="post">
-          <img src="house1.jpeg" alt="house1" class="house" />
-          <h4>Wonderful Home</h4>
-          <dl class="info">
-            <dt>Address:</dt>
-            <dd>69 Main St.</dd>
-            <dt>Number of Rooms:</dt>
-            <dd>4</dd>
-            <dt>Parking:</dt>
-            <dd>Yes</dd>
-            <dt>Rent:</dt>
-            <dd>$2000<span class="pay_period">/mo</span></dd>
-          </dl>
-        </div>
+  <ul>
+    <li>Studio</li>
+    <li>1 Bedroom</li>
+    <li>2 Bedroom</li>
+    <li>3 Bedroom</li>
+    <li>4 Bedroom</li>
+    <li>5 Bedroom</li>
+    <li>6+ Bedroom</li>
+  </ul>
+</nav>
+<div id="sort_catagories">
+  <div class="sliderbar"></div>
+</div>
+
+<section class='listing'>
+  <h3># Bedroom</h3>
+
+    <% @properties.each_with_index do |property, index| %>
+      <% if index % 2 == 0 %>
+        <div class='row'>
+      <% end %>
+
+      <div class='post'>
+        <% property.photos.each do |photo| %>
+          <% if photo.main == true %>
+            <%= image_tag photo.photo.url(:thumb), :class => 'house' %>
+            <% break %>
+          <% end %>
+        <% end %>
+
+        <h4><%= property.address %></h4>
+
+        <dl class='info'>
+          <dt>Number of Rooms:</dt>
+          <dd><%= property.bedrooms %></dd>
+
+          <dt>Parking:</dt>
+          <dd>Yes</dd>
+
+          <dt>Rent:</dt>
+          <dd>$<%= property.price %><span class='pay_period'>/<%= property.unit %></span></dd>
+        </dl>
       </div>
-      <div class="row">
-        <div class="post">
-          <img src="house1.jpeg" alt="house1" class="house" />
-          <h4>Wonderful Home</h4>
-          <dl class="info">
-            <dt>Address:</dt>
-            <dd>69 Main St.</dd>
-            <dt>Number of Rooms:</dt>
-            <dd>4</dd>
-            <dt>Parking:</dt>
-            <dd>Yes</dd>
-            <dt>Rent:</dt>
-            <dd>$2000<span class="pay_period">/mo</span></dd>
-          </dl></div>
-        <div class="post">
-          <img src="house1.jpeg" alt="house1" class="house" />
-          <h4>Wonderful Home</h4>
-          <dl class="info">
-            <dt>Address:</dt>
-            <dd>69 Main St.</dd>
-            <dt>Number of Rooms:</dt>
-            <dd>4</dd>
-            <dt>Parking:</dt>
-            <dd>Yes</dd>
-            <dt>Rent:</dt>
-            <dd>$2000<span class="pay_period">/mo</span></dd>
-          </dl></div>
-      </div>
-  </section>
+
+      <% if index % 2 == 1 %>
+        </div>
+      <% end %>
+    <% end %>
+ </section>

@@ -1,8 +1,23 @@
+<% $counter += 1 %>
 <% if photo != nil %>
-	<% new_or_existing = photo.new_record? ? 'new' : 'existing' %>
-	<% prefix = "property[#{new_or_existing}_photo_attributes][]" %>
+	<p>
+		<% new_or_existing = photo.new_record? ? 'new' : 'existing' %>
+		<% prefix = "property[photos_atributes][#{$counter}]" %>
 
-	<% fields_for prefix, photo do |photo_form| %>
-		<%= photo_form.file_field :photo %>
-	<% end %>
+		<% if(not photo.new_record?) %>
+			<%= image_tag photo.photo.url(:medium) %>
+		<% end %>
+
+		<%= fields_for prefix, :photos do |photo_form| %>
+			<% if photo.new_record? %>
+				<%= photo_form.file_field :photo %>
+
+				<% if not photo.new_record? %>
+					<%= photo_form.hidden_field :id, :value => photo.id %>
+				<% end %>
+			<% end %>
+
+			<a href="#" class="delete_photo">remove photo</a>
+		<% end %>
+	</p>
 <% end %>

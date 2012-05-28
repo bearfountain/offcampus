@@ -26,5 +26,15 @@
 	<dd><%= @property.square_footage %></dd>
 </dl>
 
+<div id="slides">
+  <div class="slides_container">
+  	<% @property.photos.each do |photo| %>
+  		<div>
+  			<%= image_tag photo.photo.url(:medium) %>
+  		</div>
+  	<% end %>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>

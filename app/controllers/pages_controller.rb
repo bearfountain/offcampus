@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 	end
 
 	def list
-
+		@properties = Property.all
 	end
 end

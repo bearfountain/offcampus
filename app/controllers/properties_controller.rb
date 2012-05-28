@@ -34,6 +34,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   # GET /properties/new.json
   def new
+    $counter = 0
     @property = Property.new
     @property.photos.build
 
@@ -45,7 +46,9 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    $counter = 0
     @property = Property.find(params[:id])
+    @property.photos.build
   end
 
   # POST /properties
@@ -53,7 +56,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(params[:property])
     @property.landlord_id = User.find(current_user).landlord.id
-
+    
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }

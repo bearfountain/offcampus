@@ -20,6 +20,7 @@
     <td>
       <% if user_signed_in? and property.landlord_id == @user.landlord.id %>
         <%= link_to 'Edit', edit_property_path(property) %>
+        <%= link_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %>
       <% end %>
     </td>
   </tr>

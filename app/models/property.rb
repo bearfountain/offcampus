@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-	attr_accessible :description, :address, :laundry, :price, :unit, :square_footage, :bedrooms, :landlord_id, :user_id, :featured
+	attr_accessible :description, :address, :laundry, :price, :unit, :square_footage, :bedrooms, :landlord_id, :user_id, :featured, :photos_attributes
 
 	validates :address, :presence => true
 	validates :description, :presence => true
@@ -11,5 +11,5 @@ class Property < ActiveRecord::Base
 
 	has_many :photos
 
-	accepts_nested_attributes_for :photos
+	accepts_nested_attributes_for :photos, :allow_destroy => true, :reject_if => proc { |attributes| attributes['photo'].nil? and attributes['id'].blank? }
 end
