@@ -255,10 +255,89 @@ dd:after {
   width: 260px;
   float: left;
   margin-right: 20px;
+  border: 8px solid #ffffff;
+  -moz-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  border: 8px solid #ffffff;
 }
 
 dt, dd {
   padding: 4px;
+}
+
+#house_info {
+  height: 270px;
+  padding-bottom: 50px;
+}
+
+/* @end */
+
+/* @group Photo Slider */
+
+#slides {
+  width: 640px;
+  margin: 10px 0;
+}
+
+#slides img {
+  width: 640px;
+  height: 400px;
+}
+
+.slides_container {
+  width: 100%;
+  margin: 20px auto;
+  -moz-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  border: 8px solid #ffffff;
+}
+
+.sliders_container div {
+  width: 500px;
+  height: 270px;
+  display: block;
+}
+
+.pagination {
+	margin:20px auto 35px;
+	width:60px;
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(img/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:585px;
 }
 
 
