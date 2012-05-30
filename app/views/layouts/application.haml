@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %title Geneseo Offcampus
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %script{:src => "/js/jquery.nouislider.js", :type => "text/javascript"}
+    %script{:src => "/js/slides.min.jquery.js", :type => "text/javascript"}
+    %script{:src => "/js/properties.js", :type => "text/javascript"}
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    %link{:href => "/css/nouislider.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Bree+Serif", :rel => "stylesheet", :type => "text/css"}
+    %script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyB6H6ENo1Vugdb0LPW_xS1Ef3DlQvjBemY&sensor=true", :type => "text/javascript"}
+    :javascript
+      function initialize() {
+        var myOptions = {
+          center: new google.maps.LatLng(42.7958, -77.8172),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("big_map"), myOptions);
+      }
+  %body{:onload => "initialize()"}
+    %header
+      #login
+        Landlords:
+        - if user_signed_in?
+          Logged in as: #{current_user.landlord.name}. #{link_to('Logout', destroy_user_session_path, :method => :delete)} |
+          \#{link_to('Dashboard', { :controller => 'landlords', :action => 'dashboard' })}
+        - else
+          = link_to('Login', new_user_session_path)
+          |
+          \#{link_to('Signup', new_user_session_path)}
+      #header_wrapper
+        %h1 Geneseo Off-Campus
+        %h2 The better place to find off-campus housing.
+      %p.notice= notice
+      %p.alert= alert
+    #content
+      #content-wrapper
+        = yield
+    %footer
