@@ -19,6 +19,8 @@ class PropertiesController < ApplicationController
   end
 
   def properties
+    @properties = Property.all
+
     @highest_price = Property.highest_price
 
     respond_to do |format|

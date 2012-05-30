@@ -12,7 +12,7 @@ class LandlordsController < ApplicationController
 
 		respond_to do |format|
 		  if @landlord.update_attributes(params[:landlord])
-		    format.html { redirect_to @landlord, notice: 'Property was successfully updated.' }
+		    format.html { redirect_to :dashboard, notice: 'Your information was saved successfully.' }
 		    format.json { head :no_content }
 		  else
 		    format.html { render action: "edit" }

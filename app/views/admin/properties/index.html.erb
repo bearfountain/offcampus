@@ -20,7 +20,7 @@
     <td><%= property.price %> per <%= property.unit %></td>
     <td><%= property.laundry ? 'included' : 'not included' %></td>
     <td><%= link_to 'Show', property %></td>
-    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => property.id %></td>
     <td><%= link_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

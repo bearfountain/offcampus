@@ -10,8 +10,10 @@
 	<dt>Phone:</dt>
 	<dd><%= @property.landlord.phone %></dd>
 
-	<dt>Email:</dt>
-	<dd><%= @property.landlord.email %></dd>
+	<% if @property.landlord.hide_email == false %>
+		<dt>Email:</dt>
+		<dd><a href='mailto:<%= @property.landlord.user.email %>'><%= @property.landlord.user.email %></a></dd>
+	<% end %>
 
 	<dt>Laundry included:</dt>
 	<dd><%= @property.laundry ? 'yes' : 'no' %></dd>
@@ -26,15 +28,17 @@
 	<dd><%= @property.square_footage %></dd>
 </dl>
 
-<div id="slides">
-  <div class="slides_container">
-  	<% @property.photos.each do |photo| %>
-  		<div>
-  			<%= image_tag photo.photo.url(:medium) %>
-  		</div>
-  	<% end %>
-  </div>
-</div>
+<% if @property.has_photo? %>
+	<div id="slides">
+	  <div class="slides_container">
+	  	<% @property.photos.each do |photo| %>
+	  		<div>
+	  			<%= image_tag photo.photo.url(:medium) %>
+	  		</div>
+	  	<% end %>
+	  </div>
+	</div>
+<% end %>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to 'Back', :controller => 'pages', :action => 'list' %>

@@ -60,7 +60,7 @@ class Admin::PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.update_attributes(params[:property])
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
+        format.html { redirect_to :index, notice: 'Property was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -13,15 +13,25 @@
 <section>
   <h3>Featured:</h3>
   	<% @featured.each_with_index do |property, index| %>
-  		<% if index % 2 == 0 %>
+  		<% if index % 3 == 0 %>
   			<div class='row'>
   		<% end %>
 
-  		<div class='post'><%= property.address %></div>
+  		<div class='post'>
+        <%= property.address %>
 
-  		<% if index % 2 == 1 %>
+        <% if property.has_photo? %>
+          <%= image_tag property.featured_photo.photo.url(:thumb) %>
+        <% end %>
+
+        <%= link_to 'read more', property %>
+      </div>
+
+  		<% if index % 3 == 2 %>
   			</div>
   		<% end %>
 
   	<% end %>
+
+    <%= link_to 'view all rentals', :action => 'list' %>
 </section>
