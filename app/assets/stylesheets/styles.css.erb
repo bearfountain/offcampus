@@ -190,11 +190,11 @@ section {
 
 /* @group Listings */
 
-nav#size_catagories ul {
+nav#size_categories ul {
   text-align: center;
 }
 
-nav#size_catagories li {
+nav#size_categories li {
   display: inline-block;
   padding: 8px 9px;
   cursor: pointer;
@@ -202,19 +202,23 @@ nav#size_catagories li {
   font: .9em "Lucida Grande", Lucida, Verdana, sans-serif;
 }
 
-nav#size_catagories li:hover {
+nav#size_categories li:hover {
   border-right: 1px solid #e1e1e1;
   border-left: 1px solid #e1e1e1;
   padding: 8px 8px;
   background-color: white;
 }
 
-nav#size_catagories {
+nav#size_categories {
   border-radius: 6px;
   border: 1px solid #dfdfdf;
   background: -moz-linear-gradient(90deg, #f6f6f6 0%, white 100%) #f6f6f6;
   background: -webkit-gradient(linear, left bottom, left top, from(#f6f6f6), to(white)) #f6f6f6;
   margin-bottom: 18px;
+}
+
+nav#size_categories li.active {
+  color: red;
 }
 
 /* @end */
@@ -268,3 +272,15 @@ dt, dd {
 
 
 /* @end */
+
+.noUi_readout {
+  position: relative;
+  top: 20px;
+  width: 55px;
+  height: 30px;
+  background: yellow;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 3px black;
+  text-align: center;
+  line-height: 30px;
+}

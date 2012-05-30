@@ -8,13 +8,19 @@ class PropertiesController < ApplicationController
       @user = User.find(current_user)
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @properties }
+    if(params[:layout] == 'false')
+      render :layout => false
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @properties }
+      end
     end
   end
 
   def properties
+    @highest_price = Property.highest_price
+
     respond_to do |format|
       format.js { render :layout => false }
     end
@@ -55,6 +61,7 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(params[:property])
+    @property.featured = false
     @property.landlord_id = User.find(current_user).landlord.id
     
     respond_to do |format|

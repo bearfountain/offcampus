@@ -1,7 +1,31 @@
 <h1>Dashboard</h1>
 
 <% @landlord.properties.each do |property| %>
-	<p><%= property.address %></p>
+	<div class='property'>
+		<% if property.has_photo? %>
+			<%= image_tag property.featured_photo.photo.url(:thumb) %>
+		<% end %>
+
+		<strong><%= property.address %></strong> <%= link_to 'Edit Property', edit_property_path(property) %>
+	</div>
 <% end %>
 
 <%= link_to 'Add Property', new_property_path %>
+
+<h1>Your Information</h1>
+
+<%= form_for @landlord do |form| %>
+	<div class='field'>
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</div>
+
+	<div class='field'>
+		<%= form.label :phone, 'Phone Number' %>
+		<%= form.text_field :phone %>
+	</div>
+
+	<div class='actions'>
+		<%= form.submit %>
+	</div>
+<% end %>
