@@ -37,8 +37,12 @@
       #header_wrapper
         %h1 Geneseo Off-Campus
         %h2 The better place to find off-campus housing.
-      %p.notice= notice
-      %p.alert= alert
+    #overlays
+      .notice
+        = notice
+      .notice.alert
+        = alert
+        %button.close —
     #content
       #content-wrapper
         = yield
