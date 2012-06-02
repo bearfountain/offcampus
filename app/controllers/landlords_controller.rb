@@ -2,7 +2,8 @@ class LandlordsController < ApplicationController
 	before_filter :authenticate_user!
 
 	def dashboard
-		@landlord = Landlord.find(current_user)
+		@user = User.find(current_user);
+		@landlord = @user.landlord;
 	end
 
 	# PUT /landlords/1
