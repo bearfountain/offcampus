@@ -1,0 +1,165 @@
+$(document).ready(function() {
+	$(".add_photo").click(function() {
+		//$(this).before('<%= raw (render :partial => 'photo', :object => Photo.new).gsub("\n", "\\n") %>');
+
+		// Extract the previous photo index
+		var index = parseInt($(this).siblings('p:last').children('input').attr('name').match(/[\d]+/)[0]);
+
+		var photo_element = $(this).siblings('p:last').clone();
+		photo_element.children('input').attr('name', photo_element.children('input').attr('name').replace(index, index + 1));
+
+		console.log(photo_element);
+
+		photo_element.insertBefore($(this));
+
+		return false;
+	});
+
+	$(".delete_photo").live('click', function() {
+		$(this).siblings('input').val(1);
+		$(this).parent('p').hide();
+
+		return false;
+	});
+
+	$(".featured").live('click', function() {
+		$(".featured").attr('checked', false);
+		$(this).attr('checked', true);
+	});
+
+
+	if($(".sliderbar").length > 0) {
+		$(".sliderbar").noUiSlider("init", {
+			startMin: 0,
+			startMax: 100,
+			tracker: function() {
+				update_sliderbar_readout();
+			},
+			change: function() {
+				var prices = $(".sliderbar").noUiSlider("getValue");
+				var bedrooms = $("#size_categories .active a:last").attr('rel');
+
+				$.get("/list", {
+					layout: false,
+					low_price: Math.round(prices[0] * <%= @highest_price / 100 %>),
+					high_price: Math.round(prices[1] * <%= @highest_price / 100 %>),
+					bedrooms: bedrooms
+				}, function(data) {
+					$("section.listing").empty().html(data);
+				});
+			}
+		});
+
+		$(".sliderbar .noUi_sliderKnob").append("<div class='noUi_readout'></div>");
+
+		update_sliderbar_readout();
+	}
+
+	$("#slides").slides({
+	    preload: true,
+	    preloadImage: 'img/loading.gif',
+	    play: 5000,
+	    pause: 2500,
+	    hoverPause: true
+  	});
+
+  	$("#slides").show();
+
+  	$("#size_categories li a").click(function () {
+  		$("#size_categories li").removeClass('active');
+  		$(this).parent().addClass('active');
+
+  		var bedrooms = $(this).attr('rel');
+
+		var prices = $(".sliderbar").noUiSlider("getValue");
+
+  		if(bedrooms == '-1') {
+	  		$.get("/list", {
+	  			layout: false,
+	  			low_price: Math.round(prices[0] * <%= @highest_price / 100 %>),
+	  			high_price: Math.round(prices[1] * <%= @highest_price / 100 %>)
+	  		}, function (data) {
+	  			$("section.listing").empty().html(data);
+	  		});
+  		}
+  		else {
+	  		$.get("/list", {
+	  			layout: false,
+	  			bedrooms: bedrooms,
+	  			low_price: Math.round(prices[0] * <%= @highest_price / 100 %>),
+	  			high_price: Math.round(prices[1] * <%= @highest_price / 100 %>)
+	  		}, function (data) {
+	  			$("section.listing").empty().html(data);
+	  		});
+	  	}
+
+  		return false;
+  	});
+
+  	$(".reset_filters").live('click', function() {
+  		$(".sliderbar").noUiSlider("move", {
+  			setTo: [0, 100]
+  		});
+
+		update_sliderbar_readout();
+
+  		$("#size_categories li.active").removeClass('active');
+  		$("#size_categories li:first").addClass('active');
+
+  		$.get("/list", {
+  				layout: false
+  			}, function(data) {
+  			$("section.listing").empty().html(data);
+  		});
+  	});
+
+	var myOptions = {
+	  center: new google.maps.LatLng(42.7958, -77.8172),
+	  zoom: 15,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
+	var map = new google.maps.Map(document.getElementById("big_map"), myOptions);
+
+
+	var infowindow = new google.maps.InfoWindow({
+		content: "hello world"
+	});
+
+  	<% @properties.each_with_index do |property, index| %>
+  		add_address_marker('<%= property.address %>, Geneseo NY 14454', '<strong><%= property.address %></strong> \
+  			<%= image_tag property.featured_photo.photo.url(:thumb) if property.has_photo? %> \
+  			<p><%= link_to "read more", property %></p> \
+  			', map);
+  	<% end %>
+
+	function add_address_marker(address, description, map) {
+	  	var geocoder = new google.maps.Geocoder();
+
+		geocoder.geocode( { 'address': address}, function(results, status) {
+	      if (status == google.maps.GeocoderStatus.OK) {
+	        var marker = new google.maps.Marker({
+	            map: map,
+	            position: results[0].geometry.location,
+	            title: address
+	        });
+
+	        marker.setVisible(true);
+
+	        google.maps.event.addListener(marker, "click", function() {
+	        	infowindow.setContent(description);
+	        	infowindow.open(map, this);
+	        });
+	      } else {
+	        console.log("Geocode was not successful for the following reason: " + status);
+	      }
+	    });	
+	}
+});
+
+function update_sliderbar_readout() {
+	var prices = $(".sliderbar").noUiSlider("getValue");
+
+	$(".sliderbar .noUi_lowerHandle .noUi_readout").text("$" + Math.round(prices[0] * <%= @highest_price %> / 100));
+	$(".sliderbar .noUi_upperHandle .noUi_readout").text("$" + Math.round(prices[1] * <%= @highest_price %> / 100));
+}
