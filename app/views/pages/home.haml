@@ -24,10 +24,15 @@
     - @featured.each_with_index do |property, index|
       - if index % 3 == 0
         .row
+
       .post
-        = property.address
         - if property.has_photo?
           = image_tag property.featured_photo.photo.url(:thumb)
+
+        %h4
+          = property.address
+
         = link_to 'read more', property
+
       - if index % 3 == 2
         = link_to 'view all rentals', :action => 'list'

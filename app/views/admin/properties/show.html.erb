@@ -1,8 +1,4 @@
-<p id="notice"><%= notice %></p>
-<h2><%= @property.address %></h2>
-
-<p><%= @property.description %></p>
-
+l<h2><%= @property.address %></h2>
 <dl>
 	<dt>Landlord:</dt>
 	<dd><%= @property.landlord.name %></dd>
@@ -25,6 +21,10 @@
 	<dt>Square Footage:</dt>
 	<dd><%= @property.square_footage %></dd>
 </dl>
+
+<div class='description'>
+	<%= @property.description %>
+</div>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>

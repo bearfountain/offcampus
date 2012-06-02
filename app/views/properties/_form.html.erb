@@ -53,15 +53,21 @@
   </div>
 
   <div class='field'>
-    <%= f.label :summer, 'Available for Summer' %> <br/>
+    <%= f.label :summer, 'Available for Summer' %> <br />
 
     <%= f.check_box :summer %>
   </div>
 
   <div class='field'>
-    <%= f.label :utilities, "Included utilities" %> <br/>
+    <%= f.label :utilities, "Included utilities" %> <br />
 
     <%= f.text_field :utilities %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :parking, 'Parking included?' %> <br />
+
+    <%= f.check_box :parking %>
   </div>
 
   <%= f.fields_for :photos do |photo_form| %>

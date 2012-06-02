@@ -1,32 +1,4 @@
-<p id="notice"><%= notice %></p>
 <h2><%= @property.address %></h2>
-
-<p><%= @property.description %></p>
-
-<dl>
-	<dt>Landlord:</dt>
-	<dd><%= @property.landlord.name %></dd>
-
-	<dt>Phone:</dt>
-	<dd><%= @property.landlord.phone %></dd>
-
-	<% if @property.landlord.hide_email == false %>
-		<dt>Email:</dt>
-		<dd><a href='mailto:<%= @property.landlord.user.email %>'><%= @property.landlord.user.email %></a></dd>
-	<% end %>
-
-	<dt>Laundry included:</dt>
-	<dd><%= @property.laundry ? 'yes' : 'no' %></dd>
-
-	<dt>Price:</dt>
-	<dd>$<%= @property.price %> per <%= @property.unit %></dd>
-
-	<dt>Number of Bedrooms:</dt>
-	<dd><%= @property.bedrooms %></dd>
-
-	<dt>Square Footage:</dt>
-	<dd><%= @property.square_footage %></dd>
-</dl>
 
 <% if @property.has_photo? %>
 	<div id="slides">
@@ -39,6 +11,59 @@
 	  </div>
 	</div>
 <% end %>
+
+<dl class='show'>
+	<dt>Contact:</dt>
+	<dd><%= @property.landlord.name %></dd>
+
+	<% if @property.landlord.hide_email == false %>
+		<dt>Email:</dt>
+		<dd><a href='mailto:<%= @property.landlord.user.email %>'><%= @property.landlord.user.email %></a></dd>
+	<% end %>
+
+	<% if @property.landlord.hide_email == false %>
+		<dt>Email:</dt>
+		<dd><a href='mailto:<%= @property.landlord.user.email %>'><%= @property.landlord.user.email %></a></dd>
+	<% end %>
+
+	<dt>Phone:</dt>
+	<dd class='categoryend'><%= @property.landlord.phone %></dd>
+
+	<dt>Price:</dt>
+	<dd>$<%= @property.price %> per <%= @property.unit %></dd>
+
+	<dt>Available over the Summer:</dt>
+	<dd class='categoryend'><%= @property.summer ? 'yes' : 'no' %>
+
+	<dt>Bedrooms:</dt>
+	<dd class='<%= 'categoryend' if @property.rooms == 0 or @property.square_footage == 0 %>'><%= @property.bedrooms %></dd>
+
+	<% if @property.rooms > 0 %>
+		<dt>Rooms:</dt>
+		<dd class='<%= 'categoryend' if @property.square_footage == 0 %>'><%= @property.rooms %></dd>
+	<% end %>
+
+	<% if @property.square_footage != 0 %>
+		<dt>Square Footage:</dt>
+		<dd class='categoryend'><%= @property.square_footage %> square feet</dd>
+	<% end %>
+
+	<dt>Parking:</dt>
+	<dd><%= @property.parking ? 'yes' : 'no' %></dd>
+	
+	<dt>Laundry:</dt>
+	<dd><%= @property.laundry ? 'included' : 'not included' %></dd>
+
+	<% if @property.utilities != '' %>
+		<dt>Utilities:</dt>
+		<dd><%= @property.utilities %></dd>
+	<% end %>
+
+</dl>
+
+<div class='description'>
+	<%= @property.description %>
+</div>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', :controller => 'pages', :action => 'list' %>

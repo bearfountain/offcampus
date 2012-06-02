@@ -1,14 +1,30 @@
 <h1>Dashboard</h1>
 
-<% @landlord.properties.each do |property| %>
-	<div class='property'>
-		<% if property.has_photo? %>
-			<%= image_tag property.featured_photo.photo.url(:thumb) %>
-		<% end %>
+<table class='dashboard'>
+	<% @landlord.properties.each do |property| %>
+		<tr>
+			<td>
+				<% if property.has_photo? %>
+					<%= image_tag property.featured_photo.photo.url(:thumb) %>
+				<% end %>
+			</td>
 
-		<strong><%= property.address %></strong> <%= link_to 'Edit Property', edit_property_path(property) %>
-	</div>
-<% end %>
+			<td class='address'>
+				<h3><%= property.address %></h3> 
+
+				<ul>
+					<li><%= property.bedrooms %> bedroom<%= 's' if property.bedrooms > 1 %></li>
+					<li>$<%= property.price %> per <%= property.unit %></li>
+			</td>
+
+			<td class='actions'>
+				<%= link_to 'view listing', property %> 
+				<%= link_to '(edit)', edit_property_path(property) %> 
+				<%= link_to '(destroy)', property, confirm: 'Are you sure?', method: :delete %></td>
+			</td>
+		</tr>
+	<% end %>
+</table>
 
 <%= link_to 'Add Property', new_property_path %>
 
