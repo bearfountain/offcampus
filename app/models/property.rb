@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-	attr_accessible :description, :address, :laundry, :price, :unit, :square_footage, :bedrooms, :landlord_id, :user_id, :featured, :photos_attributes
+	attr_accessible :description, :address, :laundry, :price, :unit, :square_footage, :bedrooms, :landlord_id, :user_id, :featured, :photos_attributes, :summer, :utilities, :rooms
 
 	validates :address, :presence => true
 	validates :description, :presence => true

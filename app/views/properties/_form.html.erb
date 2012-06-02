@@ -23,12 +23,17 @@
 
   <div class='field'>
     <%= f.label :square_footage %><br />
-    <%= f.text_field :square_footage, :size => 3 %>
+    <%= f.text_field :square_footage, :size => 4 %>
   </div>
 
   <div class='field'>
     <%= f.label :bedrooms, 'Number of Bedrooms' %><br />
     <%= f.text_field :bedrooms, :size => 2 %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :rooms, 'Rooms' %> <br/>
+    <%= f.text_field :rooms, :size => 2 %>
   </div>
 
   <div class='field'>
@@ -45,6 +50,18 @@
       ['Year', 'year'],
       ['Semester', 'semester']
     ]) %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :summer, 'Available for Summer' %> <br/>
+
+    <%= f.check_box :summer %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :utilities, "Included utilities" %> <br/>
+
+    <%= f.text_field :utilities %>
   </div>
 
   <%= f.fields_for :photos do |photo_form| %>
