@@ -9,9 +9,10 @@ development:
   database: offcampus
   pool: 5
   timeout: 5000
-  username: offcampus
-  password: 19alligators
-  socket: /var/run/mysqld/mysqld.sock
+  username: root
+  password: pineapple17
+  socket: /tmp/mysql.sock
+#/tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
