@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_one :landlord
+
+  accepts_nested_attributes_for :landlord
 end

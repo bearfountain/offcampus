@@ -1,5 +1,5 @@
 Offcampus::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :landlords
   resources :properties
@@ -73,4 +73,5 @@ Offcampus::Application.routes.draw do
   match '/list' => 'pages#list'
 
   match '/js/properties' => 'properties#properties'
+
 end
