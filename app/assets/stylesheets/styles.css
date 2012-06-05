@@ -49,7 +49,8 @@ table {
 }
 
 a {
-  color: blue;
+  color: inherit;
+  text-decoration: none;
 }
 /* @end */
 
@@ -203,7 +204,11 @@ input {
   -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
   border: 1px solid #6c8c66;
-  height: 220px;
+  height: 250px;
+}
+
+.registration_wrapper.sign_up {
+  height: 290px;
 }
 
 .registration_wrapper h2 {
@@ -211,6 +216,22 @@ input {
   color: #696969;
   font-size: 2em;
   padding: 0;
+}
+
+.registration_wrapper form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.registration_wrapper input {
+  width: 100%;
+}
+
+.registration_wrapper label, .registration_wrapper input[type ="checkbox"] {
+  text-align: left;
+  width: auto;
+  margin-top: 10px;
 }
 
 form {
@@ -462,12 +483,16 @@ section {
 }
 
 .view_by.bedrooms {
-  width: 100px;
+  width: 110px;
   height: 20px;
   padding: 10px 0;
   font-size: 1em;
   margin-right: 5px;
   line-height: 20px
+}
+
+.view_by.bedrooms.short {
+  width: 70px;
 }
 
 .view_by:first-of-type {
@@ -549,51 +574,14 @@ dl.show section {
   margin-bottom: 40px;
 }
 
-dl.show dd, dl.show dt {
-  padding: 10px;
-  background-color: rgb(241, 242, 244);
-}
-
-dl.show dt {
-  width: 50%;
-  background-color: #ffffff;
-  border: 1px solid #909090;
-  border-bottom: none;
-}
-
-dl.show dt:first-of-type {
-  border-top-left-radius: 8px;
-}
-
-dl.show dt:last-of-type {
-  border-bottom-left-radius: 8px;
-  border: 1px solid #909090;
-}
-
-dl.show dd {
-  border: 1px solid #979797;
-  border-bottom: none;
-}
-
-dl.show dd:first-of-type {
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-}
-
-dl.show dd:last-of-type {
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom: 1px solid #979797;
-}
-
 dd {
-  display: block;
-  text-align: right;
+  text-align: left;
 }
 
 dt {
-  display: block;
-  text-align: left;
+  text-align: right;
+  width: 170px;
+  margin-right: 17px;
   float: left;
   font-weight: bold;
   font-family: sans-serif;
@@ -622,7 +610,7 @@ dd:after {
 }
 
 dt, dd {
-  padding: 4px;
+  padding: 8px;
 }
 
 
