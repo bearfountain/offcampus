@@ -213,15 +213,31 @@ input {
   padding: 0;
 }
 
-label {
-  margin: 12px 0;
-  display: block;
-  color: #424242;
+form {
+  margin: 20px 0;
+  width: 700px;
 }
 
-input {
-  width: 285px;
-  margin: auto;
+form h4 {
+  padding-top: 40px;
+}
+
+form li {
+  padding: 6px;
+}
+
+form label {
+  float: left;
+  width: 170px;
+  text-align: right;
+  margin-right: 17px;
+  line-height: 23px;
+  color: #424242;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 350px;
   background-color: rgba(255, 255, 255, 0.84);
   border-radius: 3px;
   -moz-border-radius: 3px;
@@ -231,7 +247,35 @@ input {
   font-size: 1.2em;
 }
 
-[type = "checkbox"], label {
+form textarea {
+  height: 200px;
+}
+
+ol.photos {
+  padding: 40px;
+}
+
+ol.photos li.preview {
+  float: left;
+}
+
+ol.photos > li {
+  border-top: 1px solid #848484;
+}
+
+ol.photos > li:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.actions {
+  margin-top: 60px;
+}
+
+input:after {
+  content: "\A";
+}
+
+input[type = "checkbox"] {
   display: inline-block;
   width: auto;
   padding-top: 8px;
@@ -344,10 +388,6 @@ section {
   padding: 10px;
   margin: auto;
   border-bottom: 1px solid rgba(166, 177, 182, 0.49);
-}
-
-section:nth-of-type(even) {
-  background-color: rgba(0, 0, 0, 0.02);
 }
 
 #big_map {

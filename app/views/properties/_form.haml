@@ -7,39 +7,60 @@
       %ul
         - @property.errors.full_messages.each do |msg|
           %li= msg
-  = f.label :address
-  = f.text_field :address
-  = f.label :description
-  = f.text_area :description
-  = f.label :square_footage
-  = f.text_field :square_footage, :size => 4
-  = f.label :bedrooms, 'Number of Bedrooms'
-  = f.text_field :bedrooms, :size => 2
-  = f.label :rooms, 'Rooms'
-  = f.text_field :rooms, :size => 2
-  = f.label :laundry, 'Laundry Included?'
-  = f.check_box :laundry
-  = f.label :price, 'Price'
-  $#{f.text_field :price, :size => 4}
-  per
-  \#{f.select :unit, options_for_select([ ['Month', 'month'], ['Year', 'year'], ['Semester', 'semester'] ])}
-  = f.label :summer, 'Available for Summer'
-  = f.check_box :summer
-  = f.label :utilities, "Included utilities"
-  = f.text_field :utilities
-  = f.label :parking, 'Parking included?'
-  = f.check_box :parking
-  = f.fields_for :photos do |photo_form|
-    %p
-      - if not photo_form.object.new_record?
-        = image_tag photo_form.object.photo.url(:medium)
-      = photo_form.label :main, "Featured Photo"
-      = photo_form.check_box :main, :class => "featured"
-      - if photo_form.object.new_record?
-        = photo_form.file_field :photo
-      - if not photo_form.object.new_record?
-        = photo_form.hidden_field :_destroy, :value => 0
-        %a.delete_photo{:href => "#"} remove photo
-  = add_photo_link('Add Photo')
-  .actions
-    = f.submit
+  %h4 Basic Info
+  %ol
+    %li
+      = f.label :address
+      = f.text_field :address
+    %li
+      = f.label :description
+      = f.text_area :description
+    %li
+      = f.label :square_footage
+      = f.text_field :square_footage, :size => 4
+    %li
+      = f.label :bedrooms, 'Number of Bedrooms'
+      = f.text_field :bedrooms, :size => 2
+    %li
+      = f.label :rooms, 'Rooms'
+      = f.text_field :rooms, :size => 2
+  %h4 Additional Info
+  %ol
+    %li
+      = f.label :laundry, 'Laundry Included?'
+      = f.check_box :laundry
+    %li
+      = f.label :price, 'Price'
+      $#{f.text_field :price, :size => 4}
+      per
+      \#{f.select :unit, options_for_select([ ['Month', 'month'], ['Year', 'year'], ['Semester', 'semester'] ])}
+    %li
+      = f.label :summer, 'Available for Summer'
+      = f.check_box :summer
+    %li
+      = f.label :utilities, "Included utilities"
+      = f.text_field :utilities
+    %li
+      = f.label :parking, 'Parking included?'
+      = f.check_box :parking
+  %h4 Property Photos
+  %ol.photos
+    = f.fields_for :photos do |photo_form|
+      %li
+        %ol
+          %li
+            - if photo_form.object.new_record?
+              = photo_form.file_field :photo
+            - if not photo_form.object.new_record?
+              %li.preview
+            - if not photo_form.object.new_record?
+              = image_tag photo_form.object.photo.url(:medium)
+              %li.featured_check
+                = photo_form.label :main, "Featured Photo"
+                = photo_form.check_box :main, :class => "featured"
+              %li.delete
+                %a.delete_photo{:href => "#", :class => 'btn warning'} remove photo
+              = photo_form.hidden_field :_destroy, :value => 0
+    = add_photo_link('+ Add Photo')
+    .actions
+      = f.submit
