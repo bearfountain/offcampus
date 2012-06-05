@@ -455,12 +455,15 @@ section {
   margin: 10px;
   padding: 4px;
   padding-bottom: 6px;
-  border: 2px solid #8f9ca2;
+  border: 1px solid #8f9ca2;
   height: 140px;
   width: 380px;
-  background: #f7f8f8;
   border-radius: 3px;
-  text-align: center;
+  line-height: 1.9em;
+  box-shadow: 0px 0px 3px #ccc;
+
+  background: -moz-linear-gradient(90deg, #E8E8E8 0%, white 100%) #fbfcfc;
+  background: -webkit-gradient(linear, left bottom, left top, from(#E8E8E8), to(white)) #fbfcfc;
 }
 
 .post:first-of-type {
@@ -480,13 +483,23 @@ section {
 
 .post img {
   border: 1px solid rgba(51, 51, 51, 0.32);
+  padding: 1px;
   float: left;
   margin-right: 8px;
   height: 100%;
 }
 
+.post a {
+  color: blue;
+  text-decoration: underline;
+}
+
 .post .btn {
   margin-top: 20px;
+}
+
+.post h4 {
+  font-size: 1.3em;
 }
 
 .view_by {
@@ -502,6 +515,13 @@ section {
   color: #b6b6b6;
   font: 1.35em "Lucida Grande", Lucida, Verdana, sans-serif;
   cursor: pointer;
+}
+
+.view_all {
+  margin: auto;
+  width: 390px;
+  position: relative;
+  left: 10px;
 }
 
 .view_by.bedrooms {

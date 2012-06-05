@@ -4,11 +4,10 @@ $(document).ready(function() {
 
 		// Extract the previous photo index
 		var index = parseInt($(this).siblings('li.photo:last').find('input').attr('name').match(/[\d]+/)[0]);
-		console.log(index);
 
 		var photo_element = $(this).siblings('li.photo:last').clone();
 
-		photo_element.find('input').each(function(index, input) {
+		photo_element.find('input').each(function(i, input) {
 			$(input).attr('name', $(input).attr('name').replace(index, index + 1));
 		});
 

@@ -1,4 +1,6 @@
 %section
+  %a{:href => '/list'}
+    .view_by.bedrooms View All
   %a{ :href => '/list?bedrooms=0' }
     .view_by.bedrooms.short Studio
   %a{ :href => '/list?bedrooms=1' }
@@ -13,15 +15,13 @@
     .view_by.bedrooms 5 Bedrooms
   %a{:href => '/list?bedrooms=6' }
     .view_by.bedrooms 6+ Bedrooms
-  %a{:href => '/list'}
-    .view_by.bedrooms View All
 %section
   %h3 Map of Geneseo
   #big_map
   %section
     %h3 Featured:
     - @featured.each_with_index do |property, index|
-      - if index % 3 == 0
+      - if index % 2 == 0
         .row
 
       .post
@@ -31,7 +31,17 @@
         %h4
           = property.address
 
+        %p
+          = property.bedrooms
+          bedrooms
+
+        %p
+          = "$" + property.price.round.to_s
+          per 
+          = property.unit
+
         = link_to 'read more', property
 
-      - if index % 3 == 2
-        = link_to 'view all rentals', :action => 'list'
+    %p 
+
+      = link_to 'view all rentals', { :action => 'list' }, { :class => 'view_by view_all' }
