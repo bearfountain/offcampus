@@ -251,20 +251,43 @@ form textarea {
   height: 200px;
 }
 
+input[type = "file"].btn {
+  margin: 0;
+}
+
 ol.photos {
   padding: 40px;
 }
 
 ol.photos li.preview {
-  float: left;
+
+}
+
+ol.photos img {
+  border: 1px solid rgba(0, 0, 0, 0.52);
+}
+
+ol.photos label {
+  width: auto;
 }
 
 ol.photos > li {
   border-top: 1px solid #848484;
 }
 
-ol.photos > li:nth-of-type(even) {
+ol.photos li.delete {
+  float: right;
+  padding: 0;
+}
+
+ol.photos > li:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.02);
+}
+
+ol.photos > li:last-of-type {
+  padding-left: 0;
+  padding-top: 20px;
+  margin-top: 40px;
 }
 
 .actions {

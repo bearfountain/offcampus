@@ -3,10 +3,10 @@ $(document).ready(function() {
 		//$(this).before('<%= raw (render :partial => 'photo', :object => Photo.new).gsub("\n", "\\n") %>');
 
 		// Extract the previous photo index
-		var index = parseInt($(this).siblings('p:last').children('input').attr('name').match(/[\d]+/)[0]);
+		var index = parseInt($(this).siblings('li:first').next().attr('name').match(/[\d]+/)[0]);
 
-		var photo_element = $(this).siblings('p:last').clone();
-		photo_element.children('input').attr('name', photo_element.children('input').attr('name').replace(index, index + 1));
+		var photo_element = $(this).siblings('li:first').next('input').clone();
+		photo_element.attr('name', photo_element.attr('name').replace(index, index + 1));
 
 		console.log(photo_element);
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 	$(".delete_photo").live('click', function() {
 		$(this).siblings('input').val(1);
-		$(this).parent('p').hide();
+		$(this).parent().parent().parent().hide();
 
 		return false;
 	});

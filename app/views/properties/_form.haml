@@ -46,21 +46,20 @@
   %h4 Property Photos
   %ol.photos
     = f.fields_for :photos do |photo_form|
-      %li
-        %ol
-          %li
-            - if photo_form.object.new_record?
-              = photo_form.file_field :photo
-            - if not photo_form.object.new_record?
-              %li.preview
-            - if not photo_form.object.new_record?
-              = image_tag photo_form.object.photo.url(:medium)
-              %li.featured_check
-                = photo_form.label :main, "Featured Photo"
-                = photo_form.check_box :main, :class => "featured"
-              %li.delete
-                %a.delete_photo{:href => "#", :class => 'btn warning'} remove photo
+      %li.photo
+        %ol.forms
+          - if not photo_form.object.new_record?
+            %li.delete
+              %a.delete_photo{:href => "#", :class => 'btn warning'} remove photo
               = photo_form.hidden_field :_destroy, :value => 0
-    = add_photo_link('+ Add Photo')
+            %li.featured_check
+              = photo_form.label :main, "Feature this photo (only one)"
+              = photo_form.check_box :main, :class => "featured"
+            %li.preview
+              - if not photo_form.object.new_record?
+                = image_tag photo_form.object.photo.url(:medium)
+      - if photo_form.object.new_record?
+        = photo_form.file_field :photo, :class => 'btn'
+    = add_photo_link('+ Add New Photo')
     .actions
       = f.submit
