@@ -3,12 +3,14 @@ $(document).ready(function() {
 		//$(this).before('<%= raw (render :partial => 'photo', :object => Photo.new).gsub("\n", "\\n") %>');
 
 		// Extract the previous photo index
-		var index = parseInt($(this).siblings('li:first').next().attr('name').match(/[\d]+/)[0]);
+		var index = parseInt($(this).siblings('li.photo:last').find('input').attr('name').match(/[\d]+/)[0]);
+		console.log(index);
 
-		var photo_element = $(this).siblings('li:first').next('input').clone();
-		photo_element.attr('name', photo_element.attr('name').replace(index, index + 1));
+		var photo_element = $(this).siblings('li.photo:last').clone();
 
-		console.log(photo_element);
+		photo_element.find('input').each(function(index, input) {
+			$(input).attr('name', $(input).attr('name').replace(index, index + 1));
+		});
 
 		photo_element.insertBefore($(this));
 
