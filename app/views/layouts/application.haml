@@ -35,8 +35,10 @@
           |
           \#{link_to('Signup', new_user_registration_path)}
       #header_wrapper
-        %h1 Geneseo Off-Campus
-        %h2 The better place to find off-campus housing.
+        %h1 
+          %a{:href => "/"} Geneseo Off-Campus
+        %h2
+          %a{:href => "/"} The better place to find off-campus housing.
     #overlays
       - if notice != nil
         .notice
