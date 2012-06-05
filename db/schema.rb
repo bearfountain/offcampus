@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120524145628) do
+ActiveRecord::Schema.define(:version => 20120524145741) do
 
   create_table "landlords", :force => true do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "email"
     t.boolean  "hide_contact"
-    t.integer  "user_id",      :null => false
+    t.boolean  "hide_email"
+    t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120524145628) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "property_id"
   end
 
   create_table "properties", :force => true do |t|
@@ -39,10 +41,12 @@ ActiveRecord::Schema.define(:version => 20120524145628) do
     t.integer  "square_footage"
     t.boolean  "laundry"
     t.integer  "landlord_id"
+    t.boolean  "featured"
+    t.boolean  "summer"
+    t.integer  "rooms"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "utilities"
-    t.boolean  "featured",       :null => false
   end
 
   create_table "users", :force => true do |t|

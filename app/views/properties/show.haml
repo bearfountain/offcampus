@@ -1,0 +1,48 @@
+%h3= @property.address
+- if @property.has_photo?
+  #slides
+    .slides_container
+      - @property.photos.each do |photo|
+        %div
+          = image_tag photo.photo.url(:medium)
+%dl.show
+  %section
+    %h4 Contact info:
+    %dt Owner:
+    %dd= @property.landlord.name
+    - if @property.landlord.hide_email == false
+      %dt Email:
+      %dd
+        %a{:href => "mailto:#{@property.landlord.user.email}"}= @property.landlord.user.email
+    %dt Phone:
+    %dd= @property.landlord.phone
+  %section
+    %h4 Rental Details:
+    %dt Price:
+    %dd
+      $#{@property.price} per #{@property.unit}
+    %dt Available over the Summer:
+    %dd= @property.summer ? 'yes' : 'no'
+  %section
+    %h4 Property Info:
+    %dt Bedrooms:
+    %dd= @property.bedrooms
+    - if @property.rooms > 0
+      %dt Rooms:
+      %dd
+    - if @property.square_footage != 0
+      %dt Square Footage:
+      %dd
+        = @property.square_footage
+        square feet
+    %dt Parking:
+    %dd= @property.parking ? 'yes' : 'no'
+    %dt Laundry:
+    %dd= @property.laundry ? 'included' : 'not included'
+    - if @property.utilities != ''
+      %dt Utilities:
+      %dd= @property.utilities
+.description
+  = @property.description
+= link_to 'Back to Dashboard', dashboard_path, :class => "btn", :action => 'list'
+= link_to 'Edit Listing', edit_property_path(@property), :class => "btn"

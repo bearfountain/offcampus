@@ -1,0 +1,35 @@
+%section#properties
+  %h3 Properties
+  %table.dashboard
+    - @landlord.properties.each do |property|
+      %tr
+        %td
+          - if property.has_photo?
+            = image_tag property.featured_photo.photo.url(:thumb)
+        %td.address
+          %h4= property.address
+          %ul
+            %li
+              = property.bedrooms
+              bedroom#{'s' if property.bedrooms > 1}
+            %li
+              $#{property.price} per #{property.unit}
+        %td.actions
+          = link_to 'view listing', property, :class => 'btn'
+          = link_to 'Edit', edit_property_path(property), :class => 'btn'
+          = link_to 'Delete', property, confirm: 'Are you sure?', method: :delete, :class => 'btn warning'
+  = link_to '+ Add Property', new_property_path, :class => 'btn'
+%section#personal_info
+  %h3 Your Information
+  = form_for @landlord do |form|
+    .field
+      = form.label :name, 'Name:'
+      = form.text_field :name
+    .field
+      = form.label :phone, 'Phone Number:'
+      = form.text_field :phone
+    .field
+      = form.label 'Hide email address:'
+      = form.check_box :hide_email
+    .actions
+      = form.submit

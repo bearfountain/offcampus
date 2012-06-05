@@ -8,11 +8,11 @@ class CreateProperties < ActiveRecord::Migration
     	t.integer :bedrooms
     	t.integer :square_footage
     	t.boolean :laundry
-      t.integer :landlord_id
-      t.boolean :featured
-      t.boolean :summer
-      t.integer :rooms
-      t.string :utilities
+	t.integer :landlord_id
+	t.boolean :featured
+	t.boolean :summer
+	t.integer :rooms
+	t.integer :parking
      	t.timestamps
     end
   end

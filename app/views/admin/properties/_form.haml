@@ -1,0 +1,37 @@
+= form_for(@property) do |f|
+  - if @property.errors.any?
+    #error_explanation
+      %h3
+        = pluralize(@property.errors.count, "error")
+        prohibited this property from being saved:
+      %ul
+        - @property.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :square_footage
+    = f.text_field :square_footage, :size => 3
+  .field
+    = f.label :bedrooms, 'Number of Bedrooms'
+    = f.text_field :bedrooms, :size => 2
+  .field
+    = f.label :price, 'Price'
+    $#{f.text_field :price, :size => 4}
+    per
+    \#{f.select :unit, options_for_select([ ['Month', 'month'], ['Year', 'year'], ['Semester', 'semester'] ])}
+  .field
+    = f.label :laundry, 'Laundry Included?'
+    = f.check_box :laundry
+  .field
+    = f.label :landlord_id, 'Landlord'
+    = collection_select :property, :landlord_id, Landlord.all, :id, :name
+  .field
+    = f.label :featured, 'Featured'
+    = f.check_box :featured
+  .actions
+    = f.submit
