@@ -1,22 +1,22 @@
 - properties.each_with_index do |property, index|
   - if index % 3 == 0
     .row
-  .post
-    - if property.has_photo?
-      = image_tag property.featured_photo.photo.url(:thumb), :class => 'house'
-    %h4= property.address
-    %dl.info
-      %dt Rooms:
-      %dd= property.bedrooms
-      %dt Parking:
-      %dd= property.parking
-      %dt Rent:
-      %dd
-        $#{property.price}
-        %span.pay_period
-          \/#{property.unit}
-    - if user_signed_in? and property.landlord_id == @user.landlord.id
-      = link_to 'edit', edit_property_url(property)
-    = link_to 'click for more info', {:controller => 'properties', :action => 'show', :id => property.id}, :class => 'btn'
+  %a{:href => "/properties/" + property.id.to_s}
+    .post
+      - if property.has_photo?
+        = image_tag property.featured_photo.photo.url(:thumb), :class => 'house'
+      %h4= property.address
+      %dl.info
+        %dt Rooms:
+        %dd= property.bedrooms
+        %dt Parking:
+        %dd= property.parking
+        %dt Rent:
+        %dd
+          $#{property.price}
+          %span.pay_period
+            \/#{property.unit}
+      - if user_signed_in? and property.landlord_id == @user.landlord.id
+        = link_to 'edit', edit_property_url(property)
   - if index % 3 == 2
     </div>

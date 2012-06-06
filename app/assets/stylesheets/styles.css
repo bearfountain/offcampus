@@ -458,23 +458,18 @@ section {
   margin: 10px;
   padding: 4px;
   padding-bottom: 6px;
-
   border: 2px solid #dbe1e4;
   height: 140px;
   width: 432px;
   border-radius: 3px;
   text-align: center;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-  background: -webkit-gradient(linear, left bottom, left top, from(#f7f7f7), to(#ffffff)), #f7f8f8;
+  background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 100%) #fbfbfb;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), to(white)) #fbfbfb;
 }
 
 .post:hover {
-  background: url(arrow.png) no-repeat;
-  background-position: top right;
+  background-color: #ffffff;
+  border-color: #c1c9cd;
 }
 
 .post:first-of-type {
@@ -530,7 +525,7 @@ section {
 
 .view_by span {
   color: #9d9d9d;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .view_by.bedrooms {
@@ -561,11 +556,15 @@ section {
 }
 
 .view_by.students:hover {
-  border-color: #96f2a2;
+  border-color: #aff5b8;
+  background: -moz-linear-gradient(90deg, #f0fdf2 0%, white 100%) #fbfcfc;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f0fdf2), to(white)) #fbfcfc;
 }
 
 .view_by.landlords:hover {
-  border-color: #7fe5ff;
+  border-color: #98eafe;
+  background: -moz-linear-gradient(90deg, #ecfbfe 0%, white 100%) #fbfcfc;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ecfbfe), to(white)) #fbfcfc;
 }
 
 .view_by:hover span.students {
