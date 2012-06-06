@@ -66,6 +66,10 @@ header {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), color-stop(0.379, rgba(226, 233, 235, 0.49)), to(#c5d2d7));
 }
 
+header h1 {
+  padding-left: 0;
+}
+
 h1 {
   padding: 12px 12px 0;
   color: #4d72b1;
@@ -621,8 +625,10 @@ dl.show h4, h4.wide {
   text-align: right;
   background: #4D72B1;
   color: white;
-  padding: 10px;
+  padding: 8px 10px;
   border-radius: 5px;
+  box-shadow: inset 0px 0px 2px white;
+  border: 1px solid #4D72B1;
 }
 
 dl.show section {
@@ -695,11 +701,16 @@ dt, dd {
 
 .slides_container {
   width: 100%;
-  height: 200px;
+  height: 300px;
   margin: 20px auto;
 }
 
 .slides_container img {
+}
+
+#slides .pagination {
+  position: relative;
+  top: -360px;
 }
 
 #slides .pagination li {
