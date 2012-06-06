@@ -6,8 +6,6 @@
   - if @ajax == true
     = render :partial => 'list', :locals => { :properties => @properties }
   - else
-
-    %h3 Bedrooms
     %nav#size_categories
       %ul
         %li.active
@@ -34,7 +32,7 @@
           %a{:href => "#", :rel => "6"}
             6+ Bedrooms (#{@counts[6] || 0})
     #sort_categories
-      %h3 Rent
+      .title Rent Range:
       .sliderbar
     %section.listing
       - if @properties.length == 0

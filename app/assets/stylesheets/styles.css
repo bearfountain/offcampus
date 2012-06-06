@@ -459,15 +459,18 @@ section {
   margin: 10px;
   padding: 4px;
   padding-bottom: 6px;
-  border: 1px solid #8f9ca2;
+
+  border: 2px solid #dbe1e4;
   height: 140px;
   width: 432px;
   border-radius: 3px;
-  line-height: 1.9em;
-  box-shadow: 0px 0px 3px #ccc;
-
-  background: -moz-linear-gradient(90deg, #E8E8E8 0%, white 100%) #fbfcfc;
-  background: -webkit-gradient(linear, left bottom, left top, from(#E8E8E8), to(white)) #fbfcfc;
+  text-align: center;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f7f7f7), to(#ffffff)), #f7f8f8;
 }
 
 .post:hover {
@@ -491,16 +494,10 @@ section {
 }
 
 .post img {
-  border: 1px solid rgba(51, 51, 51, 0.32);
-  padding: 1px;
+  border: 1px solid rgba(51, 51, 51, 0.23);
   float: left;
-  margin-right: 8px;
+  margin-right: 14px;
   height: 100%;
-}
-
-.post a {
-  color: blue;
-  text-decoration: underline;
 }
 
 .post .btn {
@@ -508,7 +505,8 @@ section {
 }
 
 .post h4 {
-  font-size: 1.3em;
+  text-align: left;
+  margin-top: 0;
 }
 
 .view_by {
@@ -562,6 +560,10 @@ section {
 
 /* @group Listings */
 
+#sort_categories {
+  margin-bottom: 60px;
+}
+
 nav#size_categories ul {
   text-align: center;
 }
@@ -586,11 +588,26 @@ nav#size_categories {
   border: 1px solid #dfdfdf;
   background: -moz-linear-gradient(90deg, #f6f6f6 0%, white 100%) #f6f6f6;
   background: -webkit-gradient(linear, left bottom, left top, from(#f6f6f6), to(white)) #f6f6f6;
-  margin-bottom: 18px;
+  margin: 18px 0;
+}
+
+nav#size_categories li.active {
+  border-right: 1px solid #d4d4d4;
+  border-left: 1px solid #d4d4d4;
+  padding: 8px 8px;
+  background-color: #ffffff;
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.19);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.19);
 }
 
 nav#size_categories li.active a {
-  color: red;
+  color: #ec643f;
+}
+
+.title, .sliderbar {
+  display: inline-block;
+  color: #6a6a6a;
 }
 
 /* @end */
@@ -676,23 +693,6 @@ dt, dd {
 
 /* @end */
 
-.noUi_sliderKnob {
-  cursor: pointer;
-}
-
-.noUi_readout {
-  position: relative;
-  top: 20px;
-  width: 55px;
-  height: 30px;
-  background: yellow;
-  border: 1px solid #ccc;
-  box-shadow: 0px 0px 3px black;
-  text-align: center;
-  line-height: 30px;
-}
-
-
 #slides {
   width: 300px;
   margin: 10px 0;
@@ -735,10 +735,8 @@ dt, dd {
   background: #EC643F;
 }
 
-
-
 .sliderbar {
-  margin-bottom: 50px;
+  margin-left: 20px;
 }
 
 
