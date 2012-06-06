@@ -433,16 +433,16 @@ a.btn:active {
 }
 
 section {
-  padding: 10px;
+  padding: 10px 0;
   margin: auto;
   border-bottom: 1px solid rgba(166, 177, 182, 0.49);
 }
 
 #big_map {
   border: 1px solid #8f9ca2;
-  margin: 10px auto;
+  margin: 10px 0;
   height: 400px;
-  width: 920px;
+  width: 895px;
   background-color: #f7f8f8;
 }
 
@@ -457,7 +457,7 @@ section {
   padding-bottom: 6px;
   border: 1px solid #8f9ca2;
   height: 140px;
-  width: 380px;
+  width: 432px;
   border-radius: 3px;
   line-height: 1.9em;
   box-shadow: 0px 0px 3px #ccc;
@@ -524,9 +524,7 @@ section {
 
 .view_all {
   margin: auto;
-  width: 390px;
-  position: relative;
-  left: 10px;
+  width: 895px;
 }
 
 .view_by.bedrooms {
