@@ -8,27 +8,34 @@
   - else
     %nav#size_categories
       %ul
-        %li.active
+        %li{:class => (@bedrooms == false ? 'active' : '') }
           %a{:href => "#", :rel => "-1"}
-            All (#{@properties.length})
-        %li
+            All (#{@all.length})
+
+        %li{:class => (@bedrooms == 0 ? 'active' : '')}
           %a{:href => "#", :rel => "0"} Studio
-        %li
+        
+        %li{:class => (@bedrooms == 1 ? 'active' : '')}
           %a{:href => "#", :rel => "1"}
             1 Bedroom (#{@counts[1] || 0})
-        %li
+        
+        %li{:class => (@bedrooms == 2 ? 'active' : '')}
           %a{:href => "#", :rel => "2"}
             2 Bedrooms (#{@counts[2] || 0})
-        %li
+        
+        %li{:class => (@bedrooms == 3 ? 'active' : '')}
           %a{:href => "#", :rel => "3"}
             3 Bedrooms (#{@counts[3] || 0})
-        %li
+        
+        %li{:class => (@bedrooms == 4 ? 'active' : '')}
           %a{:href => "#", :rel => "4"}
             4 Bedrooms (#{@counts[4] || 0})
-        %li
+        
+        %li{:class => (@bedrooms == 5 ? 'active' : '')}
           %a{:href => "#", :rel => "5"}
             5 Bedrooms (#{@counts[5] || 0})
-        %li
+        
+        %li{:class => (@bedrooms == true ? 'active' : '')}
           %a{:href => "#", :rel => "6"}
             6+ Bedrooms (#{@counts[6] || 0})
     #sort_categories

@@ -6,6 +6,15 @@ class PagesController < ApplicationController
 	end
 
 	def list
+		@all = Property.all
+
+		if(params[:bedrooms].nil?)
+			@bedrooms = false
+		else
+			@bedrooms = params[:bedrooms].to_i
+			@bedrooms = true if @bedrooms.to_i >= 6
+		end
+
     	if user_signed_in?
       		@user = User.find(current_user)
     	end
@@ -23,7 +32,7 @@ class PagesController < ApplicationController
 	  		@properties = Property.where("price >= ? AND price <= ?", params[:low_price], params[:high_price]);
 	  	
 	  	elsif(params[:bedrooms])
-	  		if(params[:bedrooms].to_i == 6)
+	  		if(params[:bedrooms].to_i >= 6)
 	  			@properties = Property.where("bedrooms >= 6");
 	  		elsif params[:bedrooms].to_i == -1
 	  			@properties = Property.all

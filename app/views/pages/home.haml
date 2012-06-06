@@ -16,10 +16,9 @@
   %a{:href => '/list?bedrooms=6' }
     .view_by.bedrooms 6+ Bedrooms
 %section
-  %h3 Map of Geneseo
   #big_map
+
   %section
-    %h3 Featured:
     - @featured.each_with_index do |property, index|
       - if index % 2 == 0
         .row
@@ -27,7 +26,7 @@
       %a{:href => 'properties/' + property.id.to_s }
         .post
           - if property.has_photo?
-            = image_tag property.featured_photo.photo.url(:thumb)
+            = image_tag property.featured_photo.photo.url(:medium)
 
           %h4
             = property.address
