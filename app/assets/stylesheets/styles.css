@@ -458,12 +458,7 @@ section {
 
   border: 2px solid #dbe1e4;
   height: 140px;
-<<<<<<< HEAD
   width: 432px;
-=======
-  width: 380px;
-  background: -moz-linear-gradient(90deg, #f7f7f7 0%, #ffffff 100%), #f7f8f8;
->>>>>>> Awesemome sliders!
   border-radius: 3px;
   text-align: center;
   -webkit-transition: all 1s ease;
@@ -511,12 +506,8 @@ section {
 }
 
 .post h4 {
-<<<<<<< HEAD
-  font-size: 1.3em;
-=======
   text-align: left;
   margin-top: 0;
->>>>>>> Awesemome sliders!
 }
 
 .view_by {
@@ -682,26 +673,6 @@ dt, dd {
 
 /* @end */
 
-<<<<<<< HEAD
-.noUi_sliderKnob {
-  cursor: pointer;
-}
-
-.noUi_readout {
-  position: relative;
-  top: 20px;
-  width: 55px;
-  height: 30px;
-  background: yellow;
-  border: 1px solid #ccc;
-  box-shadow: 0px 0px 3px black;
-  text-align: center;
-  line-height: 30px;
-}
-
-
-=======
->>>>>>> Awesemome sliders!
 #slides {
   width: 300px;
   margin: 10px 0;
@@ -739,11 +710,6 @@ dt, dd {
   background: #EC643F;
 }
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> Awesemome sliders!
 .sliderbar {
   margin-bottom: 50px;
   margin-top: 20px;
