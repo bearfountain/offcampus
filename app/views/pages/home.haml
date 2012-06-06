@@ -24,23 +24,22 @@
       - if index % 2 == 0
         .row
 
-      .post
-        - if property.has_photo?
-          = image_tag property.featured_photo.photo.url(:thumb)
+      %a{:href => 'properties/' + property.id.to_s }
+        .post
+          - if property.has_photo?
+            = image_tag property.featured_photo.photo.url(:thumb)
 
-        %h4
-          = property.address
+          %h4
+            = property.address
 
-        %p
-          = property.bedrooms
-          bedrooms
+          %p
+            = property.bedrooms
+            bedrooms
 
-        %p
-          = "$" + property.price.round.to_s
-          per 
-          = property.unit
-
-        = link_to 'read more', property
+          %p
+            = "$" + property.price.round.to_s
+            per 
+            = property.unit
 
     %p 
 

@@ -466,6 +466,11 @@ section {
   background: -webkit-gradient(linear, left bottom, left top, from(#E8E8E8), to(white)) #fbfcfc;
 }
 
+.post:hover {
+  background: url(arrow.png) no-repeat;
+  background-position: top right;
+}
+
 .post:first-of-type {
   margin-left: 0;
 }
