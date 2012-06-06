@@ -18,19 +18,22 @@
 
 .noUi_midBar			{
   top: -1px;
-	background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.39)), color-stop(0.612, rgba(254, 254, 254, 0.1)), color-stop(0.689, rgba(254, 254, 254, 0.18)), to(rgba(255, 255, 255, 0.23))) #4d72b1;
-  border: 1px solid rgb(58, 112, 157);
+	background: url(stripe.png) center, -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.39)), color-stop(0.612, rgba(254, 254, 254, 0.1)), color-stop(0.689, rgba(254, 254, 254, 0.18)), to(rgba(255, 255, 255, 0.23))) #7a96c5;
+  border: 1px solid rgb(49, 82, 108);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .noUi_sliderKnob		{
 	z-index: 				5;
-	width:					20px;
-	height:					30px;
+	width:					30px;
+	height:					20px;
 	position:				absolute;
 	top:					-5px;
 	left:					-5px;
 	border: 1px solid #707070;
-	border-radius:  5px 5px 50% 50%;
+	border-radius:  3px;
   cursor: -webkit-grab;
 	cursor: -moz-grab;
 	-webkit-transition: all .5s ease;
@@ -38,15 +41,18 @@
 	-ms-transition: all .5s ease;
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#fafafa), to(#dedede));
-  background-image: -moz-linear-gradient(90deg, #fafafa 0%, #dedede 100%);
+  -moz-box-shadow: inset 0 1px 0 rgb(255, 255, 255), inset 0 -1px 10px rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: inset 0 1px 0 rgb(255, 255, 255), inset 0 -1px 10px rgba(0, 0, 0, 0.17);
+  box-shadow: inset 0 1px 0 rgb(255, 255, 255), inset 0 -1px 10px rgba(0, 0, 0, 0.17);
+  background: -moz-linear-gradient(90deg, white 0%, #ededed 100%) #ffffff;
+  background: -webkit-gradient(linear, left bottom, left top, from(white), to(#ededed)) #ffffff;
 }
 
 .noUi_sliderKnob:active,
 .noUi_activeHandle, .noUi_sliderKnob:active .noUi_readout, .noUi_activeHandle .noUi_readout {
 	cursor: -webkit-grabbing;
 	cursor: -moz-grabbing;
-  -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.33);
+  /*-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.33);
   -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.33);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.33);
   -moz-transform: scale(1.05) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
@@ -54,7 +60,7 @@
   -o-transform: scale(1.05) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
   -ms-transform: scale(1.05) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
   transform: scale(1.05) rotate(0deg) translate(0px, 0px) skew(0deg, 0deg);
-  border-color: #888888;
+  border-color: #888888;*/
 }
 
 .noUi_readout {
@@ -64,7 +70,7 @@
   box-shadow: none;
   color: #434343;
   position: relative;
-  left: -10px;
+  left: -5px;
   top: 36px;
   width: 40px;
   height: 20px;

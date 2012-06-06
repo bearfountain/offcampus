@@ -496,11 +496,6 @@ section {
   height: 100%;
 }
 
-.post a {
-  color: blue;
-  text-decoration: underline;
-}
-
 .post .btn {
   margin-top: 20px;
 }
