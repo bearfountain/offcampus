@@ -1,20 +1,12 @@
 %section
   %a{:href => '/list'}
-    .view_by.bedrooms View All
-  %a{ :href => '/list?bedrooms=0' }
-    .view_by.bedrooms.short Studio
-  %a{ :href => '/list?bedrooms=1' }
-    .view_by.bedrooms 1 Bedroom
-  %a{ :href => '/list?bedrooms=2' }
-    .view_by.bedrooms 2 Bedrooms
-  %a{:href => '/list?bedrooms=3' }
-    .view_by.bedrooms 3 Bedrooms
-  %a{:href => '/list?bedrooms=4' }
-    .view_by.bedrooms 4 Bedrooms
-  %a{:href => '/list?bedrooms=5' }
-    .view_by.bedrooms 5 Bedrooms
-  %a{:href => '/list?bedrooms=6' }
-    .view_by.bedrooms 6+ Bedrooms
+    .view_by.students
+      %span.students Students: 
+      %br View All Listings
+  %a{:href => '/list'}
+    .view_by.landlords
+      %span.landlords Landlords:
+      %br Add Your Property
 %section
   #big_map
 
