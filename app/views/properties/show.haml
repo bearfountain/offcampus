@@ -1,4 +1,4 @@
-%h3= @property.address
+%h3.property-title= @property.address
 - if @property.has_photo?
   #slides
     .slides_container
@@ -7,7 +7,7 @@
           = image_tag photo.photo.url(:medium)
 %dl.show
   %section
-    %h4 Contact info:
+    %h4 Contact info
     %dt Owner:
     %dd= @property.landlord.name
     - if @property.landlord.hide_email == false
@@ -17,14 +17,14 @@
     %dt Phone:
     %dd= @property.landlord.phone
   %section
-    %h4 Rent Details:
+    %h4 Rent Details
     %dt Price:
     %dd
       $#{@property.price} per #{@property.unit}
     %dt Available over the Summer:
     %dd= @property.summer ? 'yes' : 'no'
   %section
-    %h4 Property Info:
+    %h4 Property Info
     %dt Bedrooms:
     %dd= @property.bedrooms
     - if @property.rooms > 0
@@ -42,6 +42,9 @@
     - if @property.utilities != ''
       %dt Utilities:
       %dd= @property.utilities
+
+%h4.wide Description
+
 .description
   = @property.description
 = link_to 'Back to Dashboard', dashboard_path, :class => "btn", :action => 'list'
