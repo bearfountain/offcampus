@@ -39,8 +39,16 @@
           %a{:href => "#", :rel => "6"}
             6+ Bedrooms (#{@counts[6] || 0})
     #sort_categories
-      .title Rent Range:
+      .title
       .sliderbar
+      .switch
+        <input id="cal" name="view" type="radio" checked>
+        <label for="cal">Fall + Spring</label>
+
+        <input id="col" name="view" type="radio"> 
+        <label for="col">Summer</label>
+        
+        <span class="switch-button"></span>
     %section.listing
       - if @properties.length == 0
         Nothing found.
