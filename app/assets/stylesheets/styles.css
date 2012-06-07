@@ -87,7 +87,6 @@ h1:hover {
 
 h2 {
   font: 1.4em "Bree Serif", serif;
-  padding: 0 12px 12px;
   color: #6a6a6a;
   text-shadow: 0 1px 0 rgb(255, 255, 255);
   margin-top: -8px;
@@ -461,7 +460,7 @@ section {
   display: inline-block;
   position: relative;
   margin: 5px;
-  width: 280px;
+  width: 294px;
   text-align: center;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -477,7 +476,7 @@ section {
 }
 
 .post img {
-  width: 278px;
+  width: 292px;
   position: relative;
   display: block;
   -webkit-border-radius: 3px 3px 0 0;
@@ -485,6 +484,10 @@ section {
   border-radius: 3px 3px 0 0;
   border: 1px solid #2b2b2b;
   border-bottom: none;
+  z-index: -10;
+  -moz-box-shadow: inset 0 1px 32px black;
+  -webkit-box-shadow: inset 0 1px 32px black;
+  box-shadow: inset 0 1px 32px black;
 }
 
 .post .edit {
@@ -528,8 +531,13 @@ section {
 
 .post .info {
   padding: 8px 12px;
-  background-color: #6384bd;
-  border: 1px solid #39597e;
+  border: 1px solid #294b73;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.21);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.21);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.21);
+  z-index: 100;
+  background-color: #5980c4;
 }
 
 .post.featured .info {
