@@ -61,6 +61,10 @@ html {
   font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
+body {
+  min-width: 920px;
+}
+
 header {
   background-image: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(226, 233, 235, 0.49) 37.9%, #c5d2d7 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), color-stop(0.379, rgba(226, 233, 235, 0.49)), to(#c5d2d7));
@@ -456,15 +460,12 @@ section {
 .post {
   display: inline-block;
   position: relative;
-  margin: 10px;
+  margin: 5px;
   width: 280px;
   text-align: center;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -moz-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.36);
-  -webkit-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.36);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.36);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
 }
 
 .post:first-of-type {
@@ -476,19 +477,21 @@ section {
 }
 
 .post img {
-  width: 100%;
+  width: 278px;
   position: relative;
   display: block;
-  border-radius: 6px 6px 0 0;
-  -webkit-border-radius: 6px 6px 0 0;
-  -moz-border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  border: 1px solid #2b2b2b;
+  border-bottom: none;
 }
 
 .post .edit {
   right: 0;
   position: absolute;
   padding: 6px 8px;
-  margin: 3px;
+  margin: 4px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 4px;
   z-index: 100;
@@ -525,7 +528,12 @@ section {
 
 .post .info {
   padding: 8px 12px;
-  background-color: #f57f43;
+  background-color: #6384bd;
+  border: 1px solid #39597e;
+}
+
+.post.featured .info {
+  background-color: #ea7e47;
   border: 1px solid #993b09;
 }
 
