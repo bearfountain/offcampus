@@ -680,7 +680,7 @@ section {
   background-color: white;
 }
 
-#size_categories, #sort_categories {
+#size_categories {
   border-radius: 6px;
   border: 1px solid #dfdfdf;
   background: -moz-linear-gradient(90deg, #f6f6f6 0%, white 100%) #f6f6f6;
