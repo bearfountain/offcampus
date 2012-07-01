@@ -821,6 +821,7 @@ dt, dd {
 }
 
 .slides_container img {
+  border: 1px solid #c1c1c1;
 }
 
 #slides .pagination {

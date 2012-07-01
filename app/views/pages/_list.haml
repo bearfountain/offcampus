@@ -6,7 +6,7 @@
       = link_to 'edit info', edit_property_url(property), :class => 'edit'
     - if property.has_photo?
       %a{:href => "/properties/" + property.id.to_s}
-        = image_tag property.featured_photo.photo.url(:thumb), :class => 'house'
+        = image_tag property.featured_photo.photo.url(:medium), :class => 'house'
     .info
       %a{:href => "/properties/" + property.id.to_s}
         %h4= property.address
