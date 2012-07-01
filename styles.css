@@ -340,5 +340,106 @@ dt, dd {
 	left:585px;
 }
 
-
 /* @end */
+
+h1.tagline {
+  font-size: 2em;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  color: #434343;
+}
+
+h2.tagline {
+  margin: 10px auto;
+  width: 720px;
+}
+
+dl.reasons {
+  width: 470px;
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  margin-top: 20px;
+  padding: 10px 45px 10px 10px;
+  border-radius: 4px;
+  border: 2px solid #d9d9d9;
+  background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.03)));
+}
+
+.reasons dt, .reasons dd {
+  
+}
+
+.reasons dt {
+  font-size: 1.2em;
+  width: auto;
+}
+
+.reasons dd {
+  width: auto;
+  text-align: left;
+  width: 340px;
+  margin-left: 120px;
+  color: #3e3e3e;
+  word-spacing: .2em;
+  font-size: .9em;
+  line-height: 1.6em;
+}
+
+#right {
+  float: right;
+}
+
+button#start {
+  margin-top: 70px;
+  margin-right: 40px;
+  display: block;
+  font-size: 2em;
+  padding: 12px 24px;
+  background-color: #7ecf7d;
+  border: 1px solid #508450;
+  border-radius: 6px;
+  color: #ffffff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 1px 4px rgba(0, 0, 0, 0.61), inset 0 0 16px rgba(80, 132, 80, 0.53);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 1px 4px rgba(0, 0, 0, 0.61), inset 0 0 16px rgba(80, 132, 80, 0.53);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76), 0 1px 4px rgba(0, 0, 0, 0.61), inset 0 0 16px rgba(80, 132, 80, 0.53);
+}
+
+button#start:hover {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(89, 201, 88, 0.67)), to(rgba(255, 255, 255, 0.17)));
+  background-image: -moz-linear-gradient(90deg, rgba(89, 201, 88, 0.67) 0%, rgba(255, 255, 255, 0.17) 100%);
+}
+
+button#start:active {
+  -moz-box-shadow: inset 0 1px 2px black;
+  -webkit-box-shadow: inset 0 1px 2px black;
+  box-shadow: inset 0 1px 2px black;
+}
+
+#content.landing #content_wrapper {
+  width: 860px;
+}
+
+#other {
+  clear: both;
+  margin: 40px auto;
+  width: 720px;
+}
+
+p.landing {
+  width: 680px;
+  padding-left: 10px;
+  font: 1.2em/1.2em 'Bree Serif';
+  color: #434343;
+}
+
+p.landing a {
+  border-bottom: 1px dotted #ed644d;
+  color: #ed644d;
+}
+
+p.landing a:hover {
+  border-bottom-style: solid;
+}

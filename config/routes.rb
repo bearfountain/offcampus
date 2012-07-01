@@ -72,6 +72,8 @@ Offcampus::Application.routes.draw do
 
   match '/list' => 'pages#list'
 
+  match '/landing' => 'pages#landing'
+
   match '/js/properties' => 'properties#properties'
 
 end
